@@ -2,5 +2,13 @@
     <string name="app_name">Play</string>
 
     <!-- Splash Screen -->
-    <string name="text_splash_screen_title">Fun Begins Here...!!!</string>
+    <string name="text_splash_screen_title">Fun Begins Here…!!!</string>
+
+    <!-- Bottom Navigation-->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="play">Play</string>
+    <string name="create">Create</string>
+    <string name="account">Account</string>
+
 </resources>
