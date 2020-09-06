@@ -19,6 +19,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
 }
 
 dependencies {
@@ -38,4 +45,10 @@ dependencies {
 
     //BottomNavigationView Badge
     implementation 'q.rorbin:badgeview:1.1.0'
+
+    //commons-lang3
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
+    //guava
+    implementation 'com.google.guava:guava:29.0-android'
 }

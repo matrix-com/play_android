@@ -1,5 +1,9 @@
 package com.matrix.play;
 
+import com.google.common.collect.ImmutableList;
+
+import java.util.List;
+
 public class Constants {
 
     //Splash Screen Constants
@@ -12,6 +16,12 @@ public class Constants {
     public static final int SPLASH_PATH_ORIGINAL_WIDTH = 512;
     public static final int SPLASH_PATH_STROKE_SIZE = 5;
     public static final float SPLASH_TITLE_TEXT_SIZE = 30f;
+
+    public static final List<String> colors = ImmutableList.of("#3cba54","#f4c20d","#db3236","#4885ed");
+    public static int nmr = 1;
+    public static final int dnr = colors.size();
+    public static final String primaryColor = "#BF0C34";
+
     public static final String SPLASH_ANIMATION_TITLE_SVG_PATH = "M 286.00,308.00\n" +
             "           C 286.00,308.00 319.00,336.76 319.00,336.76\n" +
             "             334.86,348.89 356.86,357.90 377.00,358.00\n" +
