@@ -1,22 +1,25 @@
-package com.matrix.play;
+package com.matrix.play.ui.splash;
 
 import android.content.Intent;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.matrix.play.ui.login.LoginActivity;
+import com.matrix.play.ui.main.MainActivity;
+import com.matrix.play.R;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
 
-import static com.matrix.play.Constants.SPLASH_ANIMATION_CIRCULAR_REVEAL_DURATION;
-import static com.matrix.play.Constants.SPLASH_ANIMATION_PATH_FILL_DURATION;
-import static com.matrix.play.Constants.SPLASH_ANIMATION_STROKE_DRAWING_DURATION;
-import static com.matrix.play.Constants.SPLASH_ANIMATION_TITLE_DURATION;
-import static com.matrix.play.Constants.SPLASH_ANIMATION_TITLE_SVG_PATH;
-import static com.matrix.play.Constants.SPLASH_PATH_ORIGINAL_HEIGHT;
-import static com.matrix.play.Constants.SPLASH_PATH_ORIGINAL_WIDTH;
-import static com.matrix.play.Constants.SPLASH_PATH_STROKE_SIZE;
-import static com.matrix.play.Constants.SPLASH_TITLE_TEXT_SIZE;
+import static com.matrix.play.util.Constants.SPLASH_ANIMATION_CIRCULAR_REVEAL_DURATION;
+import static com.matrix.play.util.Constants.SPLASH_ANIMATION_PATH_FILL_DURATION;
+import static com.matrix.play.util.Constants.SPLASH_ANIMATION_STROKE_DRAWING_DURATION;
+import static com.matrix.play.util.Constants.SPLASH_ANIMATION_TITLE_DURATION;
+import static com.matrix.play.util.Constants.SPLASH_ANIMATION_TITLE_SVG_PATH;
+import static com.matrix.play.util.Constants.SPLASH_PATH_ORIGINAL_HEIGHT;
+import static com.matrix.play.util.Constants.SPLASH_PATH_ORIGINAL_WIDTH;
+import static com.matrix.play.util.Constants.SPLASH_PATH_STROKE_SIZE;
+import static com.matrix.play.util.Constants.SPLASH_TITLE_TEXT_SIZE;
 
 
 public class PlaySplashActivity extends AwesomeSplash {
@@ -59,7 +62,8 @@ public class PlaySplashActivity extends AwesomeSplash {
 
     @Override
     public void animationsFinished() {
-        startActivity(new Intent(PlaySplashActivity.this, MainActivity.class));
+        startActivity(new Intent(PlaySplashActivity.this, LoginActivity.class));
+        //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
 }

@@ -10,5 +10,17 @@
     <string name="play">Play</string>
     <string name="create">Create</string>
     <string name="account">Account</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+
+    <!-- Alert Dialog box text -->
+    <string name="dialog_message">I noticed that this is your first login. Make sure to input your preferences in the settings screen so we can customize the app better for you!</string>
+    <string name="dialog_title">PLAY!</string>
+    <string name="dialog_ok">OK</string>
 
 </resources>

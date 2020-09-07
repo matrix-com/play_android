@@ -1,4 +1,4 @@
-package com.matrix.play;
+package com.matrix.play.util;
 
 import com.google.common.collect.ImmutableList;
 
@@ -21,6 +21,7 @@ public class Constants {
     public static int nmr = 1;
     public static final int dnr = colors.size();
     public static final String primaryColor = "#BF0C34";
+    public static final String PLAY_SHARED_PREFERENCE_NAME = "PlayLocalDB";
 
     public static final String SPLASH_ANIMATION_TITLE_SVG_PATH = "M 286.00,308.00\n" +
             "           C 286.00,308.00 319.00,336.76 319.00,336.76\n" +

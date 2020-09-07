@@ -1,5 +1,8 @@
-package com.matrix.play;
+package com.matrix.play.ui.main;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,14 +11,18 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.matrix.play.R;
+import com.matrix.play.util.SharedPreferenceKeys;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.matrix.play.Constants.colors;
-import static com.matrix.play.Constants.dnr;
-import static com.matrix.play.Constants.nmr;
-import static com.matrix.play.Constants.primaryColor;
+import static com.matrix.play.util.Constants.PLAY_SHARED_PREFERENCE_NAME;
+import static com.matrix.play.util.Constants.colors;
+import static com.matrix.play.util.Constants.dnr;
+import static com.matrix.play.util.Constants.nmr;
+import static com.matrix.play.util.Constants.primaryColor;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationViewEx.OnNavigationItemSelectedListener {
 
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 nmr++;
             }
         });
+        isFirstTimeLogin();
     }
 
     private void initBottomNavigationView() {
@@ -70,5 +78,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                break;
        }
        return false;
+    }
+
+    public void isFirstTimeLogin(){
+        SharedPreferences preferences = getSharedPreferences(PLAY_SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        boolean isFirstTimeLogin = preferences.getBoolean(SharedPreferenceKeys.IS_FIRST_TIME_LOGIN,true);
+        if(isFirstTimeLogin){
+            displayAlertDialogBox();
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(SharedPreferenceKeys.IS_FIRST_TIME_LOGIN,false);
+        }
+
+    }
+    public void displayAlertDialogBox(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.dialog_title)
+                .setMessage(R.string.dialog_message)
+                .setIcon(R.drawable.login_icon)
+                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
