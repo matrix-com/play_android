@@ -85,12 +85,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         boolean isFirstTimeLogin = preferences.getBoolean(SharedPreferenceKeys.IS_FIRST_TIME_LOGIN,true);
         if(isFirstTimeLogin){
             displayAlertDialogBox();
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean(SharedPreferenceKeys.IS_FIRST_TIME_LOGIN,false);
         }
-
     }
     public void displayAlertDialogBox(){
+        SharedPreferences preferences = getSharedPreferences(PLAY_SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.dialog_title)
                 .setMessage(R.string.dialog_message)
@@ -98,7 +96,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean(SharedPreferenceKeys.IS_FIRST_TIME_LOGIN,false);
+                        editor.apply();
+                        dialogInterface.dismiss();
                     }
                 });
         AlertDialog alertDialog = builder.create();
