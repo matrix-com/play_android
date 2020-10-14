@@ -3,6 +3,8 @@ package com.matrix.play;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import com.facebook.stetho.Stetho;
+
 public class PlayApplication extends Application {
     // Called when the application is starting, before any other application objects have been created.
     // Overriding this method is totally optional!
@@ -10,6 +12,11 @@ public class PlayApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here!
+        Stetho.initialize(Stetho.newInitializerBuilder(this)
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .enableDumpapp(Stetho.defaultDumperPluginsProvider(getApplicationContext()))
+                .build());
+
     }
 
     // Called by the system when the device configuration changes while your component is running.

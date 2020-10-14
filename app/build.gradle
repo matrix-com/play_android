@@ -52,5 +52,14 @@ dependencies {
 
     //guava
     implementation 'com.google.guava:guava:29.0-android'
-    compileOnly 'com.google.android.wearable:wearable:2.5.0'
+
+    //Stetho for debugging
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    //GSON
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Rtrofit and Retrofit-GSON Converter
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }
